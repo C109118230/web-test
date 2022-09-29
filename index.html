@@ -1,1 +1,100 @@
-web test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="rating-box">
+         
+        <div class="rating">
+        <span class="fa fa-star-o"></span>
+        <span class="fa fa-star-o"></span>
+        <span class="fa fa-star-o"></span>
+        <span class="fa fa-star-o"></span>
+        <span class="fa fa-star-o"></span>
+        </div>
+        <h4 id="rating-value"></h1>
+        </div>
+
+
+        
+        <script src="rating.js"></script>
+    <script>
+    const stars=document.querySelector(".rating").children;
+    let ratingValue
+    let index //目前選到的星星
+    document.getElementById("rating-value").innerHTML = ""
+    for(let i=0;i<stars.length;i++){
+        stars[i].addEventListener("mouseover",function(){
+            //console.log(i)
+            document.getElementById("rating-value").innerHTML = ""
+    for(let j=0;j<stars.length;j++){
+    stars[j].classList.remove("fa-star")//reset 所有星星
+    stars[j].classList.add("fa-star-o")
+    }
+    for(let j=0;j<=i;j++){
+    stars[j].classList.remove("fa-star-o") //先移除空心的星星
+    stars[j].classList.add("fa-star") //添加新的星星 如果i=j表示選中的
+    }
+    })
+    stars[i].addEventListener("click",function(){
+    ratingValue=i+1
+    index=i
+    document.getElementById("rating-value").innerHTML = " "+ratingValue
+    })
+    stars[i].addEventListener("mouseout",function(){
+    for(let j=0;j<stars.length;j++){
+    stars[j].classList.remove("fa-star")//reset 所有星星
+    stars[j].classList.add("fa-star-o")
+    }
+    for(let j=0;j<=index;j++){
+    stars[j].classList.remove("fa-star-o")
+    stars[j].classList.add("fa-star")
+    }
+    })
+    }
+    </script>
+
+
+<div class="iphone">
+    <div class="iphone-top">
+        <span class="camera"></span>
+        <span class="sensor"></span>
+        <span class="speaker"></span>
+    </div>
+    <div class="top-bar"></div>
+    <div class="iphone-screen">
+        <label>  
+                Bluetooth  
+                <input type="checkbox" />  
+                    <i></i>  
+        </label>
+        <label>  
+Wi-Fi  
+<input type="checkbox" checked/>  
+<i></i>  
+</label>
+        <label>  
+Mobile Data  
+<input type="checkbox" />  
+<i></i>  
+</label>
+    </div>
+    <div class="buttons">
+        <span class="on-off"></span>
+        <span class="sleep"></span>
+        <span class="up"></span>
+        <span class="down"></span>
+    </div>
+    <div class="bottom-bar"></div>
+    <div class="iphone-bottom">
+        <span></span>
+    </div>
+</div>
+    
+</body>
+</html>
