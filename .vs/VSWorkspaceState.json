@@ -4,9 +4,8 @@
     "\\assets",
     "\\assets\\css",
     "\\assets\\js",
-    "\\assets\\sass",
-    "\\assets\\webfonts",
     "\\images"
   ],
+  "SelectedNode": "\\assets\\css\\login.css",
   "PreviewInSolutionExplorer": false
 }
